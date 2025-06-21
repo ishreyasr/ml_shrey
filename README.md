@@ -1,8 +1,12 @@
 # Shreyas
 
-A collection of 9 lab programs by Shreyas, packaged as a Python library.
+**Transforming complex ML algorithms into simple, one-line imports**
+
+A collection of algorithms by Shreyas, packaged as a Python library
 
 **Portfolio:** [https://shreyuse.vercel.app/](https://shreyuse.vercel.app/)
+
+---
 
 ## Installation
 
@@ -10,6 +14,32 @@ Install Library: [ml-shrey on PyPI](https://pypi.org/project/ml-shrey/)
 ```bash
 pip install ml-shrey
 ```
+
+### After Installation: Verify & Setup
+
+#### 1. Verify Installation
+After installing, check that the package is installed and see its details:
+```bash
+pip show ml-shrey
+```
+This will display the version, summary, and the installation path (Location). You can use this path to confirm which Python environment has the package.
+
+#### 2. Select the Correct Python Interpreter
+- **VS Code:**
+  1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+  2. Type "Python: Select Interpreter" and select it
+  3. Choose the interpreter that matches the path shown in `pip show ml-shrey`
+- **IDLE:**
+  - Open IDLE from the same Python installation where you installed the package (check the path in `pip show ml-shrey`)
+- **PyCharm:**
+  1. Go to `File > Settings > Project > Python Interpreter`
+  2. Select the interpreter matching the path from `pip show ml-shrey`
+  3. If needed, add a new interpreter and point it to the correct Python executable
+
+#### 3. Troubleshooting
+- If you get `ModuleNotFoundError`, double-check that your script is using the same Python interpreter where `ml-shrey` is installed.
+- Use `pip list` to see all installed packages in the current environment.
+- To reinstall: `pip uninstall ml-shrey && pip install ml-shrey`
 
 ## Usage
 
@@ -162,7 +192,7 @@ print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](../LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ## Contact
 
@@ -171,3 +201,4 @@ For questions, collaborations, or feedback, contact: [ishreyasr@gmail.com](mailt
 ## Attribution
 
 Developed and maintained by Shreyas. If you use this library, please provide appropriate attribution and a link to the project or my portfolio. 
+
