@@ -59,8 +59,8 @@ Rainy,Cold,High,Strong,Warm,Change,No
 ```
 Usage:
 ```python
-from ml_shrey.candidate import candidate_elimination
-candidate_elimination("your_data.csv")
+import ml_shrey as ml
+ml.candidate("your_data.csv")
 ```
 
 ---
@@ -77,8 +77,8 @@ Overcast,Hot,High,Strong,Yes
 ```
 Usage:
 ```python
-from ml_shrey.id3_algo import decision_tree_from_csv
-decision_tree_from_csv("your_data.csv")
+import ml_shrey as ml
+ml.id3("your_data.csv")
 ```
 
 ---
@@ -86,8 +86,8 @@ decision_tree_from_csv("your_data.csv")
 ### 3. Backpropagation (Neural Net XOR)
 Runs on the XOR dataset (no CSV required).
 ```python
-from ml_shrey.backpropogation import train_xor
-train_xor(iterations=1000)
+import ml_shrey as ml
+ml.backpropagation(iterations=1000)
 ```
 
 ---
@@ -103,8 +103,8 @@ Example CSV:
 ```
 Usage:
 ```python
-from ml_shrey.navie_bayes import run_naive_bayes
-run_naive_bayes("your_data.csv")
+import ml_shrey as ml
+ml.naive_bayes("your_data.csv")
 ```
 
 ---
@@ -121,8 +121,8 @@ V1,V2
 ```
 Usage:
 ```python
-from ml_shrey.kmeans import run_clustering
-run_clustering("your_data.csv", k=3, gmm_components=3)
+import ml_shrey as ml
+ml.kmeans("your_data.csv", k=3, gmm_components=3)
 ```
 
 ---
@@ -130,8 +130,8 @@ run_clustering("your_data.csv", k=3, gmm_components=3)
 ### 6. k-Nearest Neighbor (KNN)
 Runs on the Iris dataset (no CSV required).
 ```python
-from ml_shrey.knn import run_knn_iris
-run_knn_iris(test_size=0.4, random_state=1, neighbors=1)
+import ml_shrey as ml
+ml.knn(test_size=0.4, random_state=1, neighbors=1)
 ```
 
 ---
@@ -148,8 +148,8 @@ total_bill,tip
 ```
 Usage:
 ```python
-from ml_shrey.lwlr import run_lwlr
-run_lwlr("your_data.csv", tau=0.5)
+import ml_shrey as ml
+ml.lwlr("your_data.csv", tau=0.5)
 ```
 
 ---
@@ -157,8 +157,8 @@ run_lwlr("your_data.csv", tau=0.5)
 ### 8. Support Vector Machine (SVM)
 Runs on synthetic data (no CSV required).
 ```python
-from ml_shrey.svm import run_svm_demo
-run_svm_demo()
+import ml_shrey as ml
+ml.svm()
 ```
 
 ---
@@ -166,26 +166,8 @@ run_svm_demo()
 ### 9. Random Forest
 Runs on the breast cancer dataset (no CSV required).
 ```python
-from ml_shrey.randomforest import RandomForest
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, confusion_matrix
-
-# Load dataset
-X, y = datasets.load_breast_cancer(return_X_y=True)
-
-# Split dataset
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
-
-# Train Random Forest
-model = RandomForest(n_trees=10, max_depth=10)
-model.fit(X_train, y_train)
-
-# Predict and evaluate
-y_pred = model.predict(X_test)
-
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+import ml_shrey as ml
+ml.randomforest()
 ```
 
 ---

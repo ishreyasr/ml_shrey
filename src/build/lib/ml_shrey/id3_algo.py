@@ -70,3 +70,6 @@ def decision_tree_from_csv(file_path):
     print("\nClassifying sample:", test_sample)
     result = classify(tree, test_sample)
     print("Predicted label:", result)
+
+def id3(*args, **kwargs):
+    return decision_tree_from_csv(*args, **kwargs)

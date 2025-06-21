@@ -51,3 +51,6 @@ def run_clustering(file_path, k=3, gmm_components=3):
     plt.xlabel("V1")
     plt.ylabel("V2")
     plt.show()
+
+def kmeans(*args, **kwargs):
+    return run_clustering(*args, **kwargs)

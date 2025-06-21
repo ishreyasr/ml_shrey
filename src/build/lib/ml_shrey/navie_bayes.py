@@ -63,3 +63,6 @@ def run_naive_bayes(file_path):
 
     accuracy = (correct / len(X_test)) * 100
     print(f"Accuracy: {accuracy:.2f}%")
+
+def naive_bayes(*args, **kwargs):
+    return run_naive_bayes(*args, **kwargs)
