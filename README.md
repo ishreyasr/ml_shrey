@@ -200,5 +200,4 @@ For questions, collaborations, or feedback, contact: [ishreyasr@gmail.com](mailt
 
 ## Attribution
 
-Developed and maintained by Shreyas. If you use this library, please provide appropriate attribution and a link to the project or my portfolio. 
-
+Developed and maintained by Shreyas. If you use this library, please provide appropriate attribution and a link to the project or my portfolio.
