@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ml_shrey"
-version = "1.2"
+version = "1.4"
 description = "ML algorithms as Python package"
 authors = [
     { name = "Shreyas", email = "ishreyasr@gmail.com" }
