@@ -76,3 +76,5 @@ def run_svm_demo():
 
     plt.title("Custom SVM Decision Boundary")
     plt.show()
+    def svm(*args, **kwargs):
+       return run_svm_demo(*args, **kwargs)
