@@ -37,6 +37,3 @@ def run_knn_iris(test_size=0.4, random_state=1, neighbors=1):
     print("\n  Predicted    Actual")
     for i in range(len(pred)):
         print(f"{i:<3} {predn[i]:<10} {ytestn[i]:<10}")
-
-def knn(*args, **kwargs):
-    return run_knn_iris(*args, **kwargs)

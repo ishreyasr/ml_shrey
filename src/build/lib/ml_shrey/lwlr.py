@@ -38,6 +38,3 @@ def run_lwlr(file_path, tau=0.5):
     plt.legend()
     plt.grid(True)
     plt.show()
-
-def lwlr(*args, **kwargs):
-    return run_lwlr(*args, **kwargs)

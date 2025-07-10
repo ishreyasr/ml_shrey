@@ -56,6 +56,3 @@ def train_xor(iterations=1000):
             iteration += 1
             if iteration >= iterations:
                 break
-
-def backpropagation(*args, **kwargs):
-    return train_xor(*args, **kwargs)

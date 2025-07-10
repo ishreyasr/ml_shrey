@@ -1,21 +1,28 @@
+from .candidate import candidate_elimination, candidate
+from .id3_algo import decision_tree_from_csv, id3
+from .backpropogation import train_xor, backpropagation
+from .navie_bayes import run_naive_bayes, naive_bayes
+from .kmeans import run_clustering, kmeans
+from .knn import run_knn_iris, knn
+from .lwlr import run_lwlr, lwlr
 from .svm import svm
-from .knn import knn
-from .kmeans import kmeans
-from .backpropogation import backpropogation
-from .candidate import candidate
-from .id3_algo import id3_algo
-from .lwlr import lwlr
-from .navie_bayes import navie_bayes
 from .randomforest import randomforest
 
 __all__ = [
-    "svm",
-    "knn",
-    "kmeans",
-    "backpropogation",
+    "candidate_elimination",
     "candidate",
-    "id3_algo",
+    "decision_tree_from_csv",
+    "id3",
+    "train_xor",
+    "backpropagation",
+    "run_naive_bayes",
+    "naive_bayes",
+    "run_clustering",
+    "kmeans",
+    "run_knn_iris",
+    "knn",
+    "run_lwlr",
     "lwlr",
-    "navie_bayes",
+    "svm",
     "randomforest"
 ] 

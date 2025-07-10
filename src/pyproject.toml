@@ -9,7 +9,7 @@ description = "ML algorithms as Python package"
 authors = [
     { name = "Shreyas", email = "ishreyasr@gmail.com" }
 ]
-license = { text = "MIT" }
+license = "MIT"
 requires-python = ">=3.6"
 dependencies = [
     "pandas",

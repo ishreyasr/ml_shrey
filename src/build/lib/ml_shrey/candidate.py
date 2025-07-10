@@ -31,6 +31,3 @@ def candidate_elimination(file_path):
 
     print("Final Specific Hypothesis (S):", S)
     print("Final General Hypotheses (G):", G)
-
-def candidate(*args, **kwargs):
-    return candidate_elimination(*args, **kwargs)
