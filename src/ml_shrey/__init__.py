@@ -1,5 +1,5 @@
 from .candidate import candidate_elimination, candidate
-from .id3_algo import decision_tree_from_csv, id3
+from .id3_algo import id3
 from .backpropogation import train_xor, backpropagation
 from .navie_bayes import run_naive_bayes, naive_bayes
 from .kmeans import run_clustering, kmeans
@@ -11,7 +11,6 @@ from .randomforest import randomforest
 __all__ = [
     "candidate_elimination",
     "candidate",
-    "decision_tree_from_csv",
     "id3",
     "train_xor",
     "backpropagation",

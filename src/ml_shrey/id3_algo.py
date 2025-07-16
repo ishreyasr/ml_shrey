@@ -1,75 +1,50 @@
 import pandas as pd
 import math
-from collections import Counter
 
-# Calculate entropy of a dataset
-def entropy(data):
-    label_column = data.iloc[:, -1]
-    counts = Counter(label_column)
-    total = len(label_column)
-    return -sum((count / total) * math.log2(count / total) for count in counts.values())
+class Node:
+    def __init__(self, value="", leaf=False, pred="", children=None):
+        self.value, self.leaf, self.pred = value, leaf, pred
+        self.children = children or []
 
-# Information gain of splitting on an attribute
-def info_gain(data, attr):
-    total_entropy = entropy(data)
-    values = data[attr].unique()
-    weighted_entropy = 0
-    for val in values:
-        subset = data[data[attr] == val]
-        weighted_entropy += (len(subset) / len(data)) * entropy(subset)
-    return total_entropy - weighted_entropy
+def entropy(df):
+    counts = df["answer"].value_counts()
+    return 0 if len(counts) == 1 else -sum((c / len(df)) * math.log2(c / len(df)) for c in counts)
 
-# ID3 algorithm
-def id3(data, features):
-    labels = data.iloc[:, -1]
-    
-    # If all labels are same
-    if len(labels.unique()) == 1:
-        return labels.iloc[0]
+def best_attr(df, attrs):
+    return max(attrs, key=lambda a: entropy(df) - sum(
+        (len(s) / len(df)) * entropy(s) for s in [df[df[a] == v] for v in df[a].unique()]))
 
-    # If no more features left
-    if not features:
-        return labels.mode()[0]
+def build_tree(df, attrs):
+    if entropy(df) == 0:
+        return Node(leaf=True, pred=df["answer"].iloc[0])
+    attr = best_attr(df, attrs)
+    node = Node(value=attr)
+    for val in df[attr].unique():
+        subset = df[df[attr] == val]
+        child = Node(value=val)
+        child.children = [build_tree(subset, [a for a in attrs if a != attr])]
+        node.children.append(child)
+    return node
 
-    # Choose best attribute
-    gains = [info_gain(data, attr) for attr in features]
-    best_attr = features[gains.index(max(gains))]
+def print_tree(node, depth=0):
+    print("  " * depth + node.value + (" -> " + node.pred if node.leaf else ""))
+    for child in node.children:
+        print_tree(child, depth + 1)
 
-    tree = {best_attr: {}}
-    for val in data[best_attr].unique():
-        subset = data[data[best_attr] == val]
-        subtree = id3(subset.drop(columns=[best_attr]), [f for f in features if f != best_attr])
-        tree[best_attr][val] = subtree
+def classify(node, example):
+    if node.leaf:
+        return node.pred
+    for child in node.children:
+        if child.value == example[node.value]:
+            return classify(child.children[0], example)
 
-    return tree
-
-# Classify a test sample
-def classify(tree, sample):
-    if not isinstance(tree, dict):
-        return tree
-    root = next(iter(tree))
-    value = sample.get(root)
-    if value in tree[root]:
-        return classify(tree[root][value], sample)
-    else:
-        return "Unknown"
-
-# Main function to run ID3 and classify a sample
-def decision_tree_from_csv(file_path):
+def id3(file_path):
     data = pd.read_csv(file_path)
-    features = list(data.columns[:-1])
-    tree = id3(data, features)
-
-    print("\nGenerated Decision Tree:")
-    print(tree)
-
-    # Classify one sample (hardcoded, as required)
-    test_sample = {
-        features[i]: data.iloc[0][i] for i in range(len(features))
-    }
-    print("\nClassifying sample:", test_sample)
-    result = classify(tree, test_sample)
-    print("Predicted label:", result)
-
-def id3(*args, **kwargs):
-    return decision_tree_from_csv(*args, **kwargs)
+    features = [f for f in data.columns if f != "answer"]
+    tree = build_tree(data, features)
+    print("Decision Tree:")
+    print_tree(tree)
+    print("-" * 15)
+    # Use the same test sample as the original code
+    new = {"outlook": "sunny", "temperature": "hot", "humidity": "normal", "wind": "strong"}
+    print(f"Prediction for {new}: {classify(tree, new)}")

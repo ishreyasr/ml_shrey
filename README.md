@@ -122,7 +122,7 @@ V1,V2
 Usage:
 ```python
 import ml_shrey as ml
-ml.kmeans("your_data.csv", k=3, gmm_components=3)
+ml.kmeans("your_data.csv")
 ```
 
 ---
@@ -131,7 +131,7 @@ ml.kmeans("your_data.csv", k=3, gmm_components=3)
 Runs on the Iris dataset (no CSV required).
 ```python
 import ml_shrey as ml
-ml.knn(test_size=0.4, random_state=1, neighbors=1)
+ml.knn()
 ```
 
 ---
@@ -149,7 +149,7 @@ total_bill,tip
 Usage:
 ```python
 import ml_shrey as ml
-ml.lwlr("your_data.csv", tau=0.5)
+ml.lwlr("your_data.csv")
 ```
 
 ---
