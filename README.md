@@ -15,6 +15,29 @@ Install Library: [ml-shrey on PyPI](https://pypi.org/project/ml-shrey/)
 pip install ml-shrey
 ```
 
+**Best practice:** To ensure you are using the correct Python interpreter, use:
+```bash
+python -m pip install ml-shrey
+```
+## Global Installation
+
+To install the package globally (for all users or system-wide), use:
+```bash
+python -m pip install --user ml-shrey
+```
+Or, for a true system-wide install (may require admin rights):
+```bash
+python -m pip install ml-shrey
+```
+
+**Note:**
+- Global installs affect all Python projects on your system. For most use cases, a virtual environment is recommended to avoid version conflicts.
+- On Linux/macOS, you may need to use `sudo` for a system-wide install:
+  ```bash
+  sudo python3 -m pip install ml-shrey
+  ```
+- On Windows, make sure your PATH includes the Scripts directory of your Python installation.
+
 ### After Installation: Verify & Setup
 
 #### 1. Verify Installation
@@ -183,3 +206,4 @@ For questions, collaborations, or feedback, contact: [ishreyasr@gmail.com](mailt
 ## Attribution
 
 Developed and maintained by Shreyas. If you use this library, please provide appropriate attribution and a link to the project or my portfolio.
+
